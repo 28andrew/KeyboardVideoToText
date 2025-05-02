@@ -1,6 +1,8 @@
 # KeyboardVideoToText
 *Final project for CPSC 185.*
 
+<video src="https://github.com/user-attachments/assets/ed61f0a7-8292-4608-a4a4-7ba5b6c469af.mp4"></video>
+
 Fine-tuning a [Qwen2.5-Omni-3B](https://huggingface.co/Qwen/Qwen2.5-Omni-3B) model to predict typed text from overhead video, with audio, of typing on a keyboard.
 
 ## Environment
