@@ -7,7 +7,7 @@ Fine-tuning a [Qwen2.5-Omni-3B](https://huggingface.co/Qwen/Qwen2.5-Omni-3B) mod
 - The Conda environment is given at `environment.yml`. Create the environment with `conda env create -f environment.yml`.
 
 ## Training
-- Install `llamafactory` via `    * pip install -e ".[torch,metrics]"` in the `1training/LLaMA-Factory` directory.
+- Install `llamafactory` via `pip install -e ".[torch,metrics]"` in the `1training/LLaMA-Factory` directory.
 - Use `1training/0train.ipynb` to generate the augmented dataset and ensure that it's at `1training/LLaMA-Factory/data/keyboard_videos`. Look at the relative paths in `keyboard.json` to understand the directory structure for the .mp4 and .wav files.
 - Run training via `1training/train.sh` which uses the configuration at `1training/train_keyboard.yml`.
 
