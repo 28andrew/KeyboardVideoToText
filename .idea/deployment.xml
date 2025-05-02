@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="at2275@zoogpu:22 agent (5)" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="at2275@zoogpu:22 agent (4)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/tmp/pycharm_project_906" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="at2275@zoogpu:22 agent (5)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="185Final" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>
