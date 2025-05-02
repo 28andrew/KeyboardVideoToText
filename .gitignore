@@ -6,6 +6,7 @@
 1training/final_samples.pkl
 **/.DS_Store
 **/notes.txt
+.idea/deployment.xml
 
 
 

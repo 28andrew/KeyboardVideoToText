@@ -3,16 +3,11 @@ model_name_or_path: Qwen/Qwen2.5-Omni-3B
 trust_remote_code: true
 quantization_bit: 4
 double_quantization: true
-
-
-
-
 # COMMON
-resume_from_checkpoint: latest
+# resume_from_checkpoint: "saves/keyboard/checkpoint-300"
 video_max_pixels: 57600 # 240*240
 video_fps: 8
 video_maxlen: 112
-
 streaming: false
 num_train_epochs: 1000.0
 # max_steps: 5000
@@ -22,16 +17,12 @@ cutoff_len: 12288 # default 2048
 per_device_train_batch_size: 1
 gradient_accumulation_steps: 8
 gradient_checkpointing: true
-
 bf16: true
 flash_attn: auto
-
 save_steps: 150
 logging_strategy: "steps"
 logging_steps: 10
-
-
-
+weight_decay: 0.001
 ### method
 stage: sft
 do_train: true
@@ -42,31 +33,24 @@ lora_target: #all
   - "v_proj"
   - "k_proj"
   - "o_proj"
-
 preprocessing_num_workers: 7
 dataloader_num_workers: 7
 preprocessing_batch_size: 12
-
 dataset: keyboard
 template: qwen2_omni
-
 ### train
 output_dir: saves/keyboard
-logging_steps: 10
 plot_loss: true
 overwrite_output_dir: true
 save_only_model: false
-
 ### Training
 use_audio_in_video: false
 freeze_vision_tower: false
 learning_rate: 5.0e-6
-
 lr_scheduler_type: cosine
 warmup_steps: 500
-weight_decay: 0.05
 use_fast_tokenizer: true
 ddp_timeout: 180000
-
 ### Reporting
 report_to: wandb
+resume_from_checkpoint: saves/keyboard/checkpoint-300
