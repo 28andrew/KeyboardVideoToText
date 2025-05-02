@@ -1,6 +1,14 @@
 # KeyboardVideoToText
 *Final project for CPSC 185.*
 
-Fine-tuning a Qwen2.5-Omni-3B model to predict typed text from overhead video (with audio) of typing on a keyboard.
+Fine-tuning a [Qwen2.5-Omni-3B](https://huggingface.co/Qwen/Qwen2.5-Omni-3B) model to predict typed text from overhead video (with audio) of typing on a keyboard.
 
-Our keyboard video dataset, with full videos and keystroke timing data, is available at this [HuggingFace dataset](https://huggingface.co/datasets/andrewt28/keystroke-typing-videos).
+# Install
+- The Conda environment is given at `environment.yml`. Create the environment with `conda env create -f environment.yml`.
+
+# Training
+- Use `1training/0train.ipynb` to generate the augmented dataset and ensure that it's at `1training/LLaMA-Factory/data/keyboard_videos`. Look at the relative paths in `keyboard.json` to understand the directory structure for the .mp4 and .wav files.
+- Run training via `1training/train.sh` which uses the configuration at `1training/train_keyboard.yml`.
+
+# Dataset
+- Our keyboard video dataset, with full videos and keystroke timing data, is available at this [HuggingFace dataset](https://huggingface.co/datasets/andrewt28/keystroke-typing-videos).
