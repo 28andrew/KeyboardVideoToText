@@ -3,54 +3,62 @@ model_name_or_path: Qwen/Qwen2.5-Omni-3B
 trust_remote_code: true
 quantization_bit: 4
 double_quantization: true
+upcast_layernorm: false
 # COMMON
-# resume_from_checkpoint: "saves/keyboard/checkpoint-300"
-video_max_pixels: 57600 # 240*240
-video_fps: 8
-video_maxlen: 112
+video_max_pixels: 40000 # 200*200
+video_fps: 15
+video_maxlen: 180
 streaming: false
-num_train_epochs: 1000.0
-# max_steps: 5000
-
+num_train_epochs: 10.0
 overwrite_cache: false
-cutoff_len: 12288 # default 2048
+cutoff_len: 8192 # default 2048
 per_device_train_batch_size: 1
-gradient_accumulation_steps: 8
+gradient_accumulation_steps: 1
 gradient_checkpointing: true
 bf16: true
 flash_attn: auto
-save_steps: 150
+save_steps: 200
 logging_strategy: "steps"
 logging_steps: 10
-weight_decay: 0.001
+weight_decay: 0.05
 ### method
 stage: sft
 do_train: true
 finetuning_type: lora
-lora_rank: 16
-lora_target: #all
+lora_rank: 64
+lora_alpha: 128
+lora_dropout: 0.3
+lora_target:
   - "q_proj"
-  - "v_proj"
   - "k_proj"
+  - "v_proj"
   - "o_proj"
-preprocessing_num_workers: 7
+# eval
+eval_dataset: keyboard_eval
+eval_strategy: steps
+eval_steps: 3000
+preprocessing_num_workers: 4
 dataloader_num_workers: 7
 preprocessing_batch_size: 12
+predict_with_generate: true
+per_device_eval_batch_size: 1
 dataset: keyboard
 template: qwen2_omni
 ### train
-output_dir: saves/keyboard
+output_dir: saves/keyboard32-2
 plot_loss: true
 overwrite_output_dir: true
 save_only_model: false
 ### Training
 use_audio_in_video: false
 freeze_vision_tower: false
+freeze_multi_modal_projector: false
 learning_rate: 5.0e-6
 lr_scheduler_type: cosine
-warmup_steps: 500
+warmup_steps: 300
 use_fast_tokenizer: true
 ddp_timeout: 180000
 ### Reporting
 report_to: wandb
-resume_from_checkpoint: saves/keyboard/checkpoint-300
+run_name: keyboard32qlora2
+resume_from_checkpoint: saves/keyboard32-2/checkpoint-32800

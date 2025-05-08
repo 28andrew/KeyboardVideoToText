@@ -719,5 +719,20 @@
       "user_tag": "user",
       "assistant_tag": "assistant"
     }
+  },
+  "keyboard_eval": {
+    "file_name": "keyboard_eval.json",
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "messages",
+      "videos": "videos",
+      "audios": "audios"
+    },
+    "tags": {
+      "role_tag": "role",
+      "content_tag": "content",
+      "user_tag": "user",
+      "assistant_tag": "assistant"
+    }
   }
 }
